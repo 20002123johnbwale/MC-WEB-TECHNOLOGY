@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\author{BWALE JOHN}
+\title{WEB TECHNOLOGY AND DEVELOPMENT}
+\date{\today}
+
+\begin{document}
+
+\section{section 1 web security}
+\subsection{What is Cross-Site Scripting (XSS), and how can it be prevented in web applications? }
+-Cross-Site Scripting (XSS) is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users. It can lead to data theft, session hijacking, and other malicious actions. To prevent XSS, developers should:
+\begin{itemize}
+
+\item  .Input Validation: Filter and sanitize user inputs to remove or neutralize malicious code.
+\item .Output Encoding: Encode user-generated content when rendering it on web pages.
+\item .Content Security Policy (CSP): Implement CSP headers to restrict which scripts can be executed on a page.
+\item .Use Security Libraries: Leverage security libraries and frameworks that offer built-in protection against XSS.
+\item ..Keep Software Updated: Regularly update software components, libraries, and frameworks to patch known vulnerabilities.
+\subsection{ Explain the concept of Cross-Site Request Forgery (CSRF) and provide an example of a mitigation technique.}
+-Site Request Forgery (CSRF) is an attack where an attacker tricks a user into making unintended requests to a different website while the user is authenticated on a target site. To mitigate CSRF, developers can use anti-CSRF tokens, which are unique tokens included in each form or request. These tokens must be verified on the server before processing the request, ensuring that the request comes from the expected source.
+\subsection{What is SQL Injection, and how can developers protect their web applications from it?}
+-SQL Injection is a vulnerability that occurs when attackers insert malicious SQL queries into input fields, enabling them to manipulate or extract data from a database. To protect against SQL Injection, developers can:
+\item .Use Prepared Statements and Parameterized Queries to separate SQL code from user input.
+\item  .Implement Input Validation and Sanitization to remove or neutralize malicious SQL code.
+\item .Follow the Least Privilege Principle and ensure that database accounts have minimal privileges.
+\item .Utilize Web Application Firewalls (WAFs) to detect and block SQL Injection attempts.
+\subsection{Define authentication and authorization in the context of web applications. How are they different?}
+-Authentication is the process of verifying the identity of a user, typically using a username and password. It answers the question, "Who are you?" Authorization, on the other hand, is the process of determining what actions or resources a user is allowed to access after they've been authenticated. It answers the question, "What are you allowed to do?" Authentication establishes identity, while authorization determines access rights.
+\subsection{List three security best practices that developers should follow when building web applications.}
+\item .Input Validation: Filter and sanitize user inputs to prevent injection attacks like SQL Injection and XSS.
+\item .Regular Software Updates: Keep all software components, libraries, and frameworks up to date to patch known vulnerabilities.
+\item .Strong Authentication and Authorization: Implement robust authentication mechanisms and fine-grained authorization controls to ensure data and system security.
+\section{section 2 Deployment and Hosting}
+\subsection{ Compare shared hosting and cloud services as web hosting options. What are the advantages and disadvantages of each?}
+Shared Hosting:
+\item  .Advantages: Cost-effective, easy setup, managed by the hosting provider.
+\item   Advantages: Cost-effective, easy setup, managed by the hosting provider.
+Cloud Services:
+\item  .Advantages: Scalability, better performance, flexibility, control, security features, pay-as-you-go pricing.
+\item .Disadvantages: Potentially higher cost, learning curve, increased management responsibilities.
+\subsection{Describe the steps involved in deploying a web application to a server. Include any necessary tools or technologies.}
+\item{.Choose a hosting provider or server infrastructure.}
+\item{.Prepare the server by installing necessary software (e.g., web server, database).}
+\item{.Upload application files to the server using protocols like FTP or SCP.}
+\item{Configure the server to run the application, including setting up environment variables and server settings.}
+\item{.Test the application to ensure it's working correctly.}
+\item{.Monitor and maintain the server to address issues and apply updates as needed.}
+\item {Tools and technologies may include FTP clients, SSH for server access, configuration management tools like Ansible or Docker for containerization.}
+\subsection{What is Continuous Integration and Continuous Deployment (CI/CD)? How does it benefit the development and deployment of web applications?}
+-Continuous Integration (CI) is a practice where developers frequently integrate their code changes into a shared repository, which is automatically built and tested. Continuous Deployment (CD) extends CI by automatically deploying successful builds to production. Benefits of CI/CD for web applications:
+\item {.Improved Code Quality: Frequent integration and automated testing catch bugs early.}
+\item {.Faster Release Cycles: Automated deployment reduces manual intervention and accelerates releases.}
+\item {.Enhanced Collaboration: CI/CD encourages collaboration among development, testing, and operations teams.}     
+\item {.Rapid Issue Resolution: It enables faster responses to issues and feature requests.}
+\item {.Increased Reliability: The automation process ensures consistent and reliable deployment.}                                        
+\end{itemize}
+\end{document}

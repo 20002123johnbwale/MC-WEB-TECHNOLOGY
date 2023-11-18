@@ -1,0 +1,137 @@
+\documentclass{article}
+
+\begin{document}
+\title{WEB-TECHNOLOGY ASSINGMENT (2)}
+\author{JOHN BWALE}
+\date{TODAY}
+\maketitle
+
+\section*{Web Security}
+
+\subsection*{Question 1}
+What is Cross-Site Scripting (XSS), and how can it be prevented in web applications?
+
+\subsection*{Answer 1}
+Cross-Site Scripting (XSS) is a type of security vulnerability that allows attackers to inject malicious scripts into trusted websites viewed by other users. These scripts can be used to steal sensitive information, perform unauthorized actions, or deface the website.
+
+To prevent XSS attacks, developers should:
+\begin{itemize}
+  \item Implement input validation and sanitization: Validate and sanitize all user-supplied data to remove or neutralize any potentially malicious content.
+  \item Use output encoding: Encode user-generated or dynamic content when displaying it in web pages to prevent the execution of injected scripts.
+  \item Implement Content Security Policy (CSP): Use CSP to specify the allowed sources of content, such as scripts, stylesheets, and images, reducing the risk of executing malicious scripts.
+\end{itemize}
+
+\subsection*{Question 2}
+Explain the concept of Cross-Site Request Forgery (CSRF) and provide an example of a mitigation technique.
+
+\subsection*{Answer 2}
+Cross-Site Request Forgery (CSRF) is an attack that tricks authenticated users into performing unintended actions on a website without their knowledge or consent. It occurs when a malicious website or email convinces the victim's browser to make a request to a target website where the user is authenticated.
+
+A common mitigation technique for CSRF attacks is to implement CSRF tokens. The server generates a unique token for each user session and includes it in each HTML form or AJAX request. When the form is submitted or the request is made, the server verifies the token's presence and validity. This prevents attackers from forging requests as the token is not known to them.
+
+\subsection*{Question 3}
+What is SQL Injection, and how can developers protect their web applications from it?
+
+\subsection*{Answer 3}
+SQL Injection is a type of attack where an attacker exploits vulnerabilities in a web application's input validation to inject malicious SQL statements. These statements can manipulate the application's database, potentially exposing or modifying sensitive data.
+
+To protect web applications from SQL Injection attacks, developers should:
+\begin{itemize}
+  \item Use parameterized queries or prepared statements: Instead of directly embedding user input in SQL queries, use parameterized queries or prepared statements to separate SQL code from user-supplied data, preventing the injection of malicious SQL.
+  \item Implement input validation and sanitization: Validate and sanitize user input to ensure it adheres to expected formats and does not contain malicious characters or SQL code.
+  \item Limit database permissions: Ensure that the database user account used by the application has the minimum required privileges to prevent unauthorized access or modification of sensitive data.
+\end{itemize}
+
+\subsection*{Question 4}
+Define authentication and authorization in the context of web applications. How are they different?
+
+\subsection*{Answer 4}
+Authentication is the process of verifying the identity of a user or entity accessing a web application. It involves validating credentials, such as a username and password, to ensure that the user is who they claim to be. Successful authentication typically results in the user being granted access to protected resources or functionality.
+
+Authorization, on the other hand, is the process of determining what actions or resources a user is allowed to access within a web application. It involves checking the permissions and privileges associated with the authenticated user to enforce access control rules. Authorization ensures that users can only perform actions or access resources that they are explicitly allowed to.
+
+In summary, authentication verifies the identity of a user, while authorization determines what actions or resources that user is allowed to access.
+
+\subsection*{Question 5}
+List three security best practices that developers should follow when building web applications.
+
+\subsection*{Answer 5}
+Three security best practices for building web applications are:
+\begin{itemize}
+  \item Secure coding practices: Follow secure coding guidelines, such as input validation, output encoding, and proper handling of user authentication and authorization.
+  \item Regular security updates: Keep all software components, including frameworks, libraries, and the underlying server, up to date with the latest security patches.
+  \item Use secure communication protocols: Implement secure communication using HTTPS with SSL/TLS to encrypt data transmitted between the web application and the user's browser, protecting it from eavesdropping and tampering.
+\end{itemize}
+
+\section*{Deployment and Hosting}
+
+\subsection*{Question 6}
+
+Compare shared hosting and cloud services as web hosting options. What are the advantages and disadvantages of each?
+
+\subsection*{Answer 6}
+Shared Hosting:
+\begin{itemize}
+  \item Advantages:
+  \begin{itemize}
+    \item Cost-effective: Shared hosting is generally more affordable as the resources (server, storage, bandwidth) are shared among multiple websites.
+    \item Easy to manage: The hosting provider takes care of server maintenance, security, and updates, requiring minimal technical expertise from the website owner.
+  \end{itemize}
+  \item Disadvantages:
+  \begin{itemize}
+    \item Limited resources: Since resources are shared, performance can be impacted if other websites on the same server experience high traffic or resource usage.
+    \item Lack of scalability: Shared hosting plans often have limitations on resource usage and may not easily accommodate sudden traffic spikes or increased resource demands.
+  \end{itemize}
+\end{itemize}
+
+Cloud Services:
+\begin{itemize}
+  \item Advantages:
+  \begin{itemize}
+    \item Scalability: Cloud services allow for easy scaling of resources, enabling websites to handle varying levels of traffic and accommodate growth.
+    \item High availability: Cloud infrastructure is designed to be highly available, reducing the risk of downtime and ensuring better reliability.
+  \end{itemize}
+  \item Disadvantages:
+  \begin{itemize}
+    \item Cost: Cloud services can be more expensive compared to shared hosting, especially for websites with high resource requirements or continuous usage.
+    \item Technical complexity: Setting up and managing cloud infrastructure requires more technical knowledge and expertise.
+  \end{itemize}
+\end{itemize}
+
+\subsection*{Question 7}
+
+Describe the steps involved in deploying a web application to a server. Include any necessary tools or technologies.
+
+\subsection*{Answer 7}
+The steps for deploying a web application to a server are as follows:
+\begin{enumerate}
+  \item Choose a server: Select a server or hosting provider that meets your application's requirements, such as operating system compatibility, storage, and scalability options.
+  \item Set up the server: Install the necessary software and configure the server environment, including the web server (e.g., Apache, Nginx), database server (e.g., MySQL, PostgreSQL), and any other dependencies.
+  \item Prepare the application: Package your web application's files and dependencies into a deployable format, such as a ZIP file or container image.
+  \item Transfer the files: Upload the application files to the server using secure file transfer protocols (e.g., FTP, SFTP) or version control tools (e.g., Git).
+  \item Install dependencies: Install any required libraries, frameworks, or packages needed for the application to run properly.
+  \item Configure the application: Set up the necessary configurations, such as database connection settings, environment variables, and security parameters.
+  \item Test the deployment: Verify that the application is running correctly on the server and performs as expected.
+  \item Set up monitoring and security: Implement monitoring tools and security measures to ensure the ongoing health and protection of the deployed application.
+\end{enumerate}
+
+\subsection*{Question 8}
+
+What is Continuous Integration and Continuous Deployment (CI/CD)? How does it benefit the development and deployment of web applications?
+
+\subsection*{Answer 8}
+Continuous Integration (CI) is a development practice where developers frequently integrate their code changes into a shared repository. Each integration triggers an automated build and testing process to detect and address integration issues early.
+
+Continuous Deployment (CD) is an extension of CI that automates the release and deployment of successfully tested code changes to production environments. It involves automatically deploying the application to a staging or production server after passing the required tests.
+
+Benefits of CI/CD for Web Applications:
+\begin{enumerate}
+  \item Faster release cycles: CI/CD enables quicker and more frequent releases, reducing time-to-market for new features and bug fixes.
+  \item Early bug detection: Automated testing during CI/CD helps identify and fix issues early in the development process, preventing them from reaching the production environment.
+  \item Improved collaboration: CI/CD encourages better collaboration among developers, as it promotes regular code integration, reduces conflicts, and provides visibility into the development progress.
+  \item Increased stability: The automated testing and deployment processes of CI/CD reduce the likelihood of errors and inconsistencies during deployment, leading to more stable and reliable applications.
+  \item Scalability and efficiency: CI/CD allows for easy scalability by automating the deployment process, making it simpler to handle increased user demand or deploy updates across multiple environments.
+\end{enumerate}
+
+\end{document}
+\end{document}

